@@ -1,6 +1,7 @@
 ﻿using Microsoft.Maui.Controls.PlatformConfiguration;
 using Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;
 using Application = Microsoft.Maui.Controls.Application;
+using NavigationPage = Microsoft.Maui.Controls.NavigationPage;
 
 namespace darkmode;
 
@@ -15,7 +16,7 @@ public partial class MainPage : ContentPage
 
 	private void OnModalPage(object sender, EventArgs e)
 	{
-		var modalPage = new MainPage();
+		var modalPage = new NavigationPage(new MainPage() { Title = "Modal Page" });
 		modalPage.On<iOS>().SetModalPresentationStyle(UIModalPresentationStyle.PageSheet);
 		Navigation.PushModalAsync(modalPage);
 	}
